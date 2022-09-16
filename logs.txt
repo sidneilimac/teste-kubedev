@@ -1,0 +1,114 @@
+Attaching to src_kube_1, src_postgres_1
+[33mpostgres_1  |[0m The files belonging to this database system will be owned by user "postgres".
+[33mpostgres_1  |[0m This user must also own the server process.
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m The database cluster will be initialized with locale "en_US.utf8".
+[33mpostgres_1  |[0m The default database encoding has accordingly been set to "UTF8".
+[33mpostgres_1  |[0m The default text search configuration will be set to "english".
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m Data page checksums are disabled.
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[33mpostgres_1  |[0m creating subdirectories ... ok
+[33mpostgres_1  |[0m selecting dynamic shared memory implementation ... posix
+[33mpostgres_1  |[0m selecting default max_connections ... 100
+[33mpostgres_1  |[0m selecting default shared_buffers ... 128MB
+[33mpostgres_1  |[0m selecting default time zone ... Etc/UTC
+[33mpostgres_1  |[0m creating configuration files ... ok
+[33mpostgres_1  |[0m running bootstrap script ... ok
+[33mpostgres_1  |[0m performing post-bootstrap initialization ... ok
+[33mpostgres_1  |[0m initdb: warning: enabling "trust" authentication for local connections
+[33mpostgres_1  |[0m You can change this by editing pg_hba.conf or using the option -A, or
+[33mpostgres_1  |[0m --auth-local and --auth-host, the next time you run initdb.
+[33mpostgres_1  |[0m syncing data to disk ... ok
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m Success. You can now start the database server using:
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m waiting for server to start....2022-09-16 17:53:20.522 UTC [48] LOG:  starting PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+[33mpostgres_1  |[0m 2022-09-16 17:53:20.524 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mpostgres_1  |[0m 2022-09-16 17:53:20.532 UTC [49] LOG:  database system was shut down at 2022-09-16 17:53:20 UTC
+[33mpostgres_1  |[0m 2022-09-16 17:53:20.539 UTC [48] LOG:  database system is ready to accept connections
+[33mpostgres_1  |[0m  done
+[33mpostgres_1  |[0m server started
+[33mpostgres_1  |[0m CREATE DATABASE
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m waiting for server to shut down...2022-09-16 17:53:20.863 UTC [48] LOG:  received fast shutdown request
+[33mpostgres_1  |[0m .2022-09-16 17:53:20.864 UTC [48] LOG:  aborting any active transactions
+[33mpostgres_1  |[0m 2022-09-16 17:53:20.866 UTC [48] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+[33mpostgres_1  |[0m 2022-09-16 17:53:20.868 UTC [50] LOG:  shutting down
+[33mpostgres_1  |[0m 2022-09-16 17:53:20.885 UTC [48] LOG:  database system is shut down
+[33mpostgres_1  |[0m  done
+[33mpostgres_1  |[0m server stopped
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m PostgreSQL init process complete; ready for start up.
+[33mpostgres_1  |[0m 
+[33mpostgres_1  |[0m 2022-09-16 17:53:21.030 UTC [1] LOG:  starting PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+[33mpostgres_1  |[0m 2022-09-16 17:53:21.030 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mpostgres_1  |[0m 2022-09-16 17:53:21.030 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mpostgres_1  |[0m 2022-09-16 17:53:21.046 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mpostgres_1  |[0m 2022-09-16 17:53:21.061 UTC [62] LOG:  database system was shut down at 2022-09-16 17:53:20 UTC
+[33mpostgres_1  |[0m 2022-09-16 17:53:21.071 UTC [1] LOG:  database system is ready to accept connections
+[36mkube_1      |[0m Aplicação rodando na porta 8080
+[36mkube_1      |[0m (node:1) UnhandledPromiseRejectionWarning: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:5432
+[36mkube_1      |[0m     at Client._connectionCallback (/app/node_modules/sequelize/lib/dialects/postgres/connection-manager.js:130:24)
+[36mkube_1      |[0m     at Client._handleErrorWhileConnecting (/app/node_modules/pg/lib/client.js:305:19)
+[36mkube_1      |[0m     at Client._handleErrorEvent (/app/node_modules/pg/lib/client.js:315:19)
+[36mkube_1      |[0m     at Connection.emit (events.js:315:20)
+[36mkube_1      |[0m     at Socket.reportStreamError (/app/node_modules/pg/lib/connection.js:52:12)
+[36mkube_1      |[0m     at Socket.emit (events.js:315:20)
+[36mkube_1      |[0m     at emitErrorNT (internal/streams/destroy.js:106:8)
+[36mkube_1      |[0m     at emitErrorCloseNT (internal/streams/destroy.js:74:3)
+[36mkube_1      |[0m     at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[36mkube_1      |[0m (Use `node --trace-warnings ...` to show where the warning was created)
+[36mkube_1      |[0m (node:1) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+[36mkube_1      |[0m (node:1) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[36mkube_1      |[0m Request Type: GET /
+[36mkube_1      |[0m (node:1) UnhandledPromiseRejectionWarning: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:5432
+[36mkube_1      |[0m     at Client._connectionCallback (/app/node_modules/sequelize/lib/dialects/postgres/connection-manager.js:130:24)
+[36mkube_1      |[0m     at Client._handleErrorWhileConnecting (/app/node_modules/pg/lib/client.js:305:19)
+[36mkube_1      |[0m     at Client._handleErrorEvent (/app/node_modules/pg/lib/client.js:315:19)
+[36mkube_1      |[0m     at Connection.emit (events.js:315:20)
+[36mkube_1      |[0m     at Socket.reportStreamError (/app/node_modules/pg/lib/connection.js:52:12)
+[36mkube_1      |[0m     at Socket.emit (events.js:315:20)
+[36mkube_1      |[0m     at emitErrorNT (internal/streams/destroy.js:106:8)
+[36mkube_1      |[0m     at emitErrorCloseNT (internal/streams/destroy.js:74:3)
+[36mkube_1      |[0m     at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[36mkube_1      |[0m (node:1) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+[36mkube_1      |[0m Request Type: POST /cgi-bin/ViewLog.asp
+[36mkube_1      |[0m BadRequestError: request aborted
+[36mkube_1      |[0m     at IncomingMessage.onAborted (/app/node_modules/raw-body/index.js:238:10)
+[36mkube_1      |[0m     at IncomingMessage.emit (events.js:315:20)
+[36mkube_1      |[0m     at abortIncoming (_http_server.js:561:9)
+[36mkube_1      |[0m     at socketOnClose (_http_server.js:554:3)
+[36mkube_1      |[0m     at Socket.emit (events.js:327:22)
+[36mkube_1      |[0m     at TCP.<anonymous> (net.js:673:12)
+[36mkube_1      |[0m Request Type: GET /
+[36mkube_1      |[0m (node:1) UnhandledPromiseRejectionWarning: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:5432
+[36mkube_1      |[0m     at Client._connectionCallback (/app/node_modules/sequelize/lib/dialects/postgres/connection-manager.js:130:24)
+[36mkube_1      |[0m     at Client._handleErrorWhileConnecting (/app/node_modules/pg/lib/client.js:305:19)
+[36mkube_1      |[0m     at Client._handleErrorEvent (/app/node_modules/pg/lib/client.js:315:19)
+[36mkube_1      |[0m     at Connection.emit (events.js:315:20)
+[36mkube_1      |[0m     at Socket.reportStreamError (/app/node_modules/pg/lib/connection.js:52:12)
+[36mkube_1      |[0m     at Socket.emit (events.js:315:20)
+[36mkube_1      |[0m     at emitErrorNT (internal/streams/destroy.js:106:8)
+[36mkube_1      |[0m     at emitErrorCloseNT (internal/streams/destroy.js:74:3)
+[36mkube_1      |[0m     at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[36mkube_1      |[0m (node:1) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 3)
+[36mkube_1      |[0m Request Type: GET /
+[36mkube_1      |[0m (node:1) UnhandledPromiseRejectionWarning: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:5432
+[36mkube_1      |[0m     at Client._connectionCallback (/app/node_modules/sequelize/lib/dialects/postgres/connection-manager.js:130:24)
+[36mkube_1      |[0m     at Client._handleErrorWhileConnecting (/app/node_modules/pg/lib/client.js:305:19)
+[36mkube_1      |[0m     at Client._handleErrorEvent (/app/node_modules/pg/lib/client.js:315:19)
+[36mkube_1      |[0m     at Connection.emit (events.js:315:20)
+[36mkube_1      |[0m     at Socket.reportStreamError (/app/node_modules/pg/lib/connection.js:52:12)
+[36mkube_1      |[0m     at Socket.emit (events.js:315:20)
+[36mkube_1      |[0m     at emitErrorNT (internal/streams/destroy.js:106:8)
+[36mkube_1      |[0m     at emitErrorCloseNT (internal/streams/destroy.js:74:3)
+[36mkube_1      |[0m     at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[36mkube_1      |[0m (node:1) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 4)

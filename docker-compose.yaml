@@ -1,0 +1,32 @@
+version: '3.8'
+
+networks:
+  kube_net:
+    driver: bridge
+
+services:
+  kube:
+    build: .
+    networks:
+      kube_net:
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres  
+    environment:
+      DB_DATABASE: kubedevnews
+      DB_USERNAME: kubedevnews
+      DB_PASSWORD: Pg#123
+  postgres:
+    image: postgres
+    networks:
+      kube_net:
+    ports:
+      - 5432:5432  
+    environment:
+      POSTGRESS_USER: kubedevnews
+      POSTGRES_PASSWORD: Pg#123
+      POSTGRES_DB: kubedevnews
+
+
+

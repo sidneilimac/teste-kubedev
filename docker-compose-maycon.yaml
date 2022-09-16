@@ -1,0 +1,56 @@
+version: '3.8'
+
+volumes:
+  vol-postgres:
+
+networks:
+  net-postgres:
+    driver: bridge
+
+services:
+  app:
+    build: .
+    #context: ./
+    #dockerfile: ./Dockerfile
+    #image: maiconnf1980/kube-news:latest
+    container_name: kube-news
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      DB_DATABASE: "kubenews"
+      DB_USERNAME: "kubenews"
+      DB_PASSWORD: "Kube@123"
+      DB_HOST: "postgres"
+    depends_on:
+      - postgres
+    networks:
+      - net-postgres
+
+  postgres:
+    container_name: postgres
+    image: postgres:14.4
+    restart: always 
+    environment:
+      POSTGRES_PASSWORD: "Kube@123"
+      POSTGRES_USER: "kubenews" 
+      POSTGRES_DB: "kubenews"
+    ports:
+      - '5432:5432'
+    networks:
+      - net-postgres
+    volumes: 
+      - vol-postgres:/var/lib/postgresql/data
+
+  #pgadmin: 
+  #  container_name: pgadmin
+  #  image: dpage/pgadmin4:latest
+  #  ports:
+  #    - '8083:80'
+  #  networks:
+  #    - net-postgres
+  #  depends_on:
+  #    - postgres
+  #  environment:
+  #    PGADMIN_DEFAULT_EMAIL: maiconnovaes@gmail.com
+  #    PGADMIN_DEFAULT_PASSWORD: q1w2e3r4 (editado)
